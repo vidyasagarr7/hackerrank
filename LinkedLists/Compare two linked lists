@@ -1,0 +1,30 @@
+#Body
+"""
+ Compare two linked list
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+
+ return back the head of the linked list in the below method.
+"""
+
+def CompareLists(headA, headB):
+    flag = 0
+    while (headA is not None and headB is not None) :
+        if headA.data != headB.data :
+            flag =1
+            break
+        headA = headA.next
+        headB = headB.next
+        
+    if flag == 1 or headA is not None or headB is not None :
+        return 0
+    else :
+        return 1
+  
+  
