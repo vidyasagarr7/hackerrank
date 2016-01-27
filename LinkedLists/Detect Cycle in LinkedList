@@ -1,0 +1,29 @@
+"""
+ Check if linked list has cycle
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+
+ return 0 if no cycle else return 1
+"""
+
+def HasCycle(head):
+    if head is None and head.next is None:
+        return 0
+    else :
+        slow = head 
+        fast = head.next
+        while 1 :
+            if fast is None or fast.next is None :
+                return 0
+            if fast == slow or fast.next == slow :
+                return 1
+            else :
+                slow = slow.next
+                fast=fast.next.next
+                
