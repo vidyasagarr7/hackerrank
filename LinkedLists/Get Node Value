@@ -1,0 +1,18 @@
+def GetNode(head, position):
+    def ReverseList(head):
+        if head is None :
+            pass
+        else :
+            last = None 
+            cur = head
+            while cur is not None :
+                next = cur.next
+                cur.next = last
+                last = cur
+                cur = next
+            return last
+    head = ReverseList(head)
+    for i in xrange(position):
+        head = head.next
+    return head.data
+            
