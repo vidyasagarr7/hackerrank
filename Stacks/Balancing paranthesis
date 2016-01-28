@@ -1,0 +1,28 @@
+n = int(raw_input().strip())
+def matches(open,close):
+    opens = '({['
+    closes = ')}]'
+    return opens.index(open) == closes.index(close) 
+
+for i in xrange(n):
+    str = raw_input().strip()
+    strlen = len(str)
+    i=0
+    balanced = True
+    stack=[]
+    while i< strlen and balanced :
+        character = str[i]
+        if character == '{' or character == '(' or character == '[':
+            stack.append(character)
+        else :
+            if len(stack) == 0 :
+                balanced = False
+            else :
+                top = stack.pop()
+                if not matches(top,character):
+                    balanced = False
+        i+=1
+    if balanced and len(stack) == 0 :
+        print 'YES'
+    else :
+        print 'NO'
