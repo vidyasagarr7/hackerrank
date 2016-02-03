@@ -1,0 +1,40 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(raw_input())
+empStr = ''
+stack = []
+erasedChars = []
+
+def computeTasks(query,stack):  
+    global empStr
+    task = int(query[0])
+    if task == 1:
+        empStr = empStr+query[1]
+    elif task == 2:
+        erasedChars.append(empStr[len(empStr)-int(query[1]):])
+        empStr = empStr[:len(empStr)-int(query[1])]
+    elif task == 3:
+        if len(empStr) >0:
+            print empStr[int(query[1])-1]
+    elif task == 4:
+        lastQ = stack.pop()
+        reverseTask(lastQ,stack)
+        
+def reverseTask(query,stack):
+    global empStr
+    task = int(query[0])
+    if task == 1 :
+        if empStr.endswith(query[1]) :
+            empStr = empStr[:-len(query[1])]
+    elif task == 2 :
+        eras = erasedChars.pop()
+        empStr = empStr + eras
+    elif task == 3:
+        pass
+    elif task == 4:
+        lastQ = stack.pop()
+
+for i in xrange(n):
+    query = raw_input().strip().split(" ")
+    if int(query[0]) == 1 or int(query[0]) == 2 :
+        stack.append(query)
+    computeTasks(query,stack)
