@@ -1,0 +1,32 @@
+ /* Node is defined as :
+ class Node 
+    int data;
+    Node left;
+    Node right;
+    
+    */
+
+static Node Insert(Node root,int value)
+    {
+        Node node = new Node();
+        node.data = value;
+        node.left = null ;
+        node.right = null;
+    
+        return InsertRec(root, node);
+        
+
+    }
+
+static Node InsertRec(Node root, Node node) {
+        if (root  == null) {
+            root = node;
+        }
+        if (node.data < root.data) {
+            root.left = InsertRec(root.left,node);
+        }
+        else if (node.data > root.data){
+            root.right = InsertRec(root.right, node);
+        }
+        return root;
+}
