@@ -1,0 +1,40 @@
+   /* 
+    
+    class Node 
+       int data;
+       Node left;
+       Node right;
+   */
+   void LevelOrder(Node root)
+    {
+        if(root == null) {
+            return ;
+        }
+        else {
+            int h = height(root);
+            for(int d=1;d<=h;d++){
+                printLevelOrder(root,d);
+            }
+
+        }
+    }
+    int height(Node root){
+        if(root == null){
+            return 0 ;
+        }
+        else {
+            return Math.max(height(root.left),height(root.right)) + 1 ;
+        }
+    }
+    void printLevelOrder(Node root,int d){
+        if (root == null) {
+            return ;
+        }
+        if (d == 1) {
+            System.out.print(root.data + " ");
+        }
+        else if (d > 1) {
+            printLevelOrder(root.left,d-1);
+            printLevelOrder(root.right,d-1);
+        }
+    }
