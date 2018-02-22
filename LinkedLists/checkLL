@@ -1,0 +1,8 @@
+
+
+def checkLL(node) : 
+    if node is None : 
+        return 
+    else : 
+        return
+
