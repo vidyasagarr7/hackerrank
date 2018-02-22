@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fba6cdd39b47508ac7805ca55552c9e7f321874c
 def checkLL(node) : 
     if node is None : 
         return 
     else : 
-        return
-
+<<<<<<< HEAD
+        return "input is not null"
+>>>>>>> fba6cdd39b47508ac7805ca55552c9e7f321874c
